@@ -8,9 +8,6 @@
   display: block;
   margin: 0 auto 30px;
   padding: 0 0 13px 0;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
 }
 
 .popup__text + .popup__text {
