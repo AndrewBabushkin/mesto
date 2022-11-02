@@ -1,0 +1,11 @@
+.profile__info {
+  max-width: 100%;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 650px) {
+  .profile__info {
+    margin: 0;
+    justify-self: start;
+  }
+}

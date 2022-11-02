@@ -1,0 +1,11 @@
+.card__heart {
+    width: 22px;
+    height: 19px;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.card__heart:hover {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
