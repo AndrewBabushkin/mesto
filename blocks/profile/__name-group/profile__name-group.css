@@ -4,6 +4,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
-
   margin-bottom: 7px;
+}
+
+@media (min-width: 650px) {
+  .profile__name-group {
+    justify-content: start;
+  }
 }
