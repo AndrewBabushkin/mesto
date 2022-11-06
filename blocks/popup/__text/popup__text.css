@@ -7,7 +7,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto 30px;
-  padding: 0 0 13px 0;
+  padding: 0 0 9px 0;
 }
 
 .popup__text + .popup__text {
@@ -17,6 +17,7 @@
 @media (min-width: 650px) {
   .popup__text {
     width: 358px;
+    padding-bottom: 9px;
   }
   .popup__text + .popup__text {
     margin-bottom: 48px;

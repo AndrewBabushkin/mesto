@@ -2,16 +2,14 @@
   font-weight: 900;
   font-size: 18px;
   line-height: 22px;
-  text-align: center;
   color: #000;
-  margin: 25px 0 75px 0;
+  margin: 26px auto 74px 22px;
 }
 
 @media (min-width: 650px) {
   .popup__title {
     font-size: 24px;
     line-height: 29px;
-    margin-bottom: 54px;
-    margin-top: 34px;
+    margin: 34px auto 48px 36px;
   }
 }

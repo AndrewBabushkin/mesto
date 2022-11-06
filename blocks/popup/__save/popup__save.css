@@ -9,8 +9,8 @@
   padding: 0;
   border: 0;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 17px;
   cursor: pointer;
 }
 
@@ -23,5 +23,7 @@
     width: 358px;
     height: 50px;
     margin-bottom: 37px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }

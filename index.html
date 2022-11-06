@@ -45,100 +45,110 @@
       </section>
 
       <section class="gallery" aria-label="Фотографии">
-        <article class="card">
-          <img
-            src="./images/gallery-img1.jpg"
-            alt="Фотография храма в горах"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Карачаевск</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
-
-        <article class="card">
-          <img
-            src="./images/gallery-img2.png"
-            alt="Фотография горы Эльбрус"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
-
-        <article class="card">
-          <img
-            src="./images/gallery-img3.png"
-            alt="Фотография горы Домбай"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Домбай</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
-        <article class="card">
-          <img
-            src="./images/gallery-img4.png"
-            alt="Фотография горы Эльбрус"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
-
-        <article class="card">
-          <img
-            src="./images/gallery-img5.png"
-            alt="Фотография горы Домбай"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Домбай</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
-
-        <article class="card">
-          <img
-            src="./images/gallery-img6.png"
-            alt="Фотография храма в горах"
-            class="card__image"
-          />
-          <div class="card__caption">
-            <h2 class="card__title">Карачаево-Черкесия</h2>
-            <img
-              src="./images/heart.svg"
-              alt="Иконка сердечка"
-              class="card__heart"
-            />
-          </div>
-        </article>
+        <ul class="gallery__list">
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img1.jpg"
+                alt="Фотография храма в горах"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Карачаевск</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img2.png"
+                alt="Фотография горы Эльбрус"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img3.png"
+                alt="Фотография горы Домбай"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Домбай</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img4.png"
+                alt="Фотография горы Эльбрус"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Гора Эльбрус</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img5.png"
+                alt="Фотография горы Домбай"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Домбай</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+          <li class="gallery__list-item">
+            <article class="card">
+              <img
+                src="./images/gallery-img6.png"
+                alt="Фотография храма в горах"
+                class="card__image"
+              />
+              <div class="card__caption">
+                <h2 class="card__title">Карачаево-Черкесия</h2>
+                <img
+                  src="./images/heart.svg"
+                  alt="Иконка сердечка"
+                  class="card__heart"
+                />
+              </div>
+            </article>
+          </li>
+        </ul>
       </section>
     </main>
 
@@ -147,28 +157,32 @@
     </footer>
 
     <div class="popup">
-      <form class="popup__content">
+      <div class="popup__content">
         <button class="popup__close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input
-          type="text"
-          class="popup__text popup__text_name"
-          name="name"
-          value="Жак-Ив Кусто"
-        />
-        <input
-          type="text"
-          class="popup__text popup__text_profession"
-          name="profession"
-          value="Исследователь океана"
-        />
-        <input
-          type="submit"
-          class="popup__save"
-          value="Сохранить"
-          name="save"
-        />
-      </form>
+        <form class="popup__form-edit">
+          <input
+            type="text"
+            class="popup__text popup__text_name_edit"
+            name="editName"
+            value="Жак-Ив Кусто"
+          />
+          <input
+            type="text"
+            class="popup__text popup__text_profession_edit"
+            name="editProfession"
+            value="Исследователь океана"
+          />
+          <button
+            type="submit"
+            class="popup__save"
+            value="Сохранить"
+            name="save"
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
     </div>
 
     <script src="./scripts/index.js" defer></script>

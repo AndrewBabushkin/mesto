@@ -1,11 +1,12 @@
 .card__heart {
-    width: 22px;
-    height: 19px;
-    object-fit: cover;
-    transition: transform .4s ease;
+  width: 22px;
+  height: 19px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
 }
 
 .card__heart:hover {
-    opacity: 0.5;
-    transform: scale(1.1);
+  opacity: 0.5;
+  transform: scale(1.1);
 }

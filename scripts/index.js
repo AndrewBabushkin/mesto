@@ -24,9 +24,9 @@ popupElem.addEventListener("click", function (event) {
 
 // Редактирование информации и себе.
 
-let formElement = document.querySelector(".popup__content");
-let nameInput = formElement.querySelector(".popup__text_name");
-let professionInput = formElement.querySelector(".popup__text_profession");
+let formElement = document.querySelector(".popup__form-edit");
+let nameInput = formElement.querySelector(".popup__text_name_edit");
+let professionInput = formElement.querySelector(".popup__text_profession_edit");
 let nameProfile = document.querySelector(".profile__name");
 let professionProfile = document.querySelector(".profile__profession");
 

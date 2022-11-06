@@ -1,7 +1,7 @@
 .popup__content {
   position: absolute;
   width: 282px;
-  min-height: 322px;
+  height: 322px;
   top: 123px;
   margin: 0 auto;
   background: #ffffff;
@@ -13,7 +13,7 @@
 @media (min-width: 650px) {
   .popup__content {
     width: 430px;
-    min-height: 330px;
+    height: 330px;
     top: 195px;
   }
 }
