@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mesto</title>
+    <title lang="en">Mesto</title>
     <meta
       name="description"
       content="Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки."
@@ -55,11 +55,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Карачаевск</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -72,11 +72,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Гора Эльбрус</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -89,11 +89,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Домбай</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -106,11 +106,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Гора Эльбрус</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -123,11 +123,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Домбай</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -140,11 +140,11 @@
               />
               <div class="card__caption">
                 <h2 class="card__title">Карачаево-Черкесия</h2>
-                <img
-                  src="./images/heart.svg"
-                  alt="Иконка сердечка"
+                <button
+                  type="button"
                   class="card__heart"
-                />
+                  aria-label="Нравиться"
+                ></button>
               </div>
             </article>
           </li>
@@ -157,28 +157,29 @@
     </footer>
 
     <div class="popup">
-      <div class="popup__content">
-        <button class="popup__close"></button>
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close"
+          aria-label="Закрыть"
+        ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form-edit">
+        <form class="popup__form-edit" name="form-edit">
           <input
             type="text"
-            class="popup__text popup__text_name_edit"
+            class="popup__input-field popup__input-field_name_edit"
             name="editName"
-            value="Жак-Ив Кусто"
+            value="Имя"
+            placeholder="Ваше имя"
           />
           <input
             type="text"
-            class="popup__text popup__text_profession_edit"
+            class="popup__input-field popup__input-field_profession_edit"
             name="editProfession"
-            value="Исследователь океана"
+            value="Профессия"
+            placeholder="Ваш род деятельности"
           />
-          <button
-            type="submit"
-            class="popup__save"
-            value="Сохранить"
-            name="save"
-          >
+          <button type="submit" class="popup__save-button" name="save-button">
             Сохранить
           </button>
         </form>

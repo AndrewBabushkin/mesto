@@ -14,12 +14,13 @@
   .profile__profession {
     margin: 0;
     text-align: start;
+    max-width: 217px;
   }
 }
 
 @media (min-width: 1024px) {
   .profile__profession {
-    max-width: 550px;
+    max-width: 336px;
     font-size: 18px;
     line-height: 22px;
   }
