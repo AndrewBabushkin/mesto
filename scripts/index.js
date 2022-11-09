@@ -1,11 +1,11 @@
 const editElem = document.querySelector(".profile__button_type_edit");
 const popupElem = document.querySelector(".popup");
-const closeEdit = popupElem.querySelector(".popup__close");
+const closeEdit = popupElem.querySelector(".popup__close-button");
 
 const formElement = document.querySelector(".popup__form-edit");
-let nameInput = formElement.querySelector(".popup__input-field_name_edit");
+let nameInput = formElement.querySelector(".popup__input-field_inter_name");
 let professionInput = formElement.querySelector(
-  ".popup__input-field_profession_edit"
+  ".popup__input-field_inter_profession"
 );
 let nameProfile = document.querySelector(".profile__name");
 let professionProfile = document.querySelector(".profile__profession");
