@@ -3,9 +3,9 @@ const popupElem = document.querySelector(".popup");
 const closeEdit = popupElem.querySelector(".popup__close-button");
 
 const formElement = document.querySelector(".popup__form-edit");
-let nameInput = formElement.querySelector(".popup__input-field_inter_name");
+let nameInput = formElement.querySelector(".popup__input-field_type_name");
 let professionInput = formElement.querySelector(
-  ".popup__input-field_inter_profession"
+  ".popup__input-field_type_profession"
 );
 let nameProfile = document.querySelector(".profile__name");
 let professionProfile = document.querySelector(".profile__profession");
