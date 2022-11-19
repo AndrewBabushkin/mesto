@@ -9,6 +9,7 @@
   background-size: cover;
   transition: opacity 0.4s ease;
   display: block;
+  cursor: pointer;
 }
 
 .card__heart-button:hover {
