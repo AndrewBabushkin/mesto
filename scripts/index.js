@@ -1,4 +1,4 @@
-// открытие попапа и закрытие
+// открытие попапа edit и закрытие
 
 const editElem = document.querySelector(".profile__button_type_edit");
 const popupElem = document.querySelector(".popup");
@@ -19,20 +19,41 @@ let professionProfile = document.querySelector(".profile__profession");
 const addButton = document.querySelector(".profile__button_type_add");
 const popupAddCard = document.querySelector(".popup_type_add-card");
 
-// функции открытия и закрытия попапов
+// добавление новой карточки из формы
 
+const formAddCart = popupAddCard.querySelector(".popup__form-edit_card");
+const inputTitle = formAddCart.querySelector(".popup__input-field_type_title");
+const inputImage = formAddCart.querySelector(".popup__input-field_type_image");
+
+// cоздание карточек
+
+const galleryContainer = document.querySelector(".gallery__list");
+const tegTemplate = document.querySelector("#card-template").content;
+const cardTemplate = tegTemplate.querySelector(".gallery__list-item");
+
+// попап zoom image
+
+const popupZoomImage = document.querySelector(".popup_type_zoom");
+const figcaption = popupZoomImage.querySelector(".popup__figcaption");
+const largeImage = popupZoomImage.querySelector(".popup__image");
+
+// функция открытия попап edit
 const onOpen = (popup) => {
   popup.classList.add("popup_opened");
   nameInput.value = nameProfile.textContent;
   professionInput.value = professionProfile.textContent;
 };
 
-const onClose = function (popup) {
+const onClose = (popup) => {
   popup.classList.remove("popup_opened");
 };
 
 const openAddСard = (popupAddCard) => {
   popupAddCard.classList.add("popup_opened");
+};
+
+const openZoomPopup = (popupZoomImage) => {
+  popupZoomImage.classList.add("popup_opened");
 };
 
 //  обработчик крестиков
@@ -42,9 +63,10 @@ closeEdit.forEach((button) => {
     onClose(popup);
   });
 });
+
 // обработчик профиля
-function formSubmitHandler(evt) {
-  evt.preventDefault();
+function formSubmitHandler(event) {
+  event.preventDefault();
 
   nameProfile.textContent = nameInput.value;
   professionProfile.textContent = professionInput.value;
@@ -61,6 +83,7 @@ editElem.addEventListener("click", function () {
 addButton.addEventListener("click", function () {
   openAddСard(popupAddCard);
 });
+// открытие zoom popup
 
 // шаблон
 
@@ -90,9 +113,6 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-const galleryContainer = document.querySelector(".gallery__list");
-const tegTemplate = document.querySelector("#card-template").content;
-const cardTemplate = tegTemplate.querySelector(".gallery__list-item");
 
 const handleDeleteCard = (event) => {
   event.target.closest(".gallery__list-item").remove();
@@ -103,6 +123,7 @@ const handleLikeCard = (event) => {
     .closest(".card__heart-button")
     .classList.toggle("card__heart-button_active");
 };
+
 // создание карточки
 
 const generateCard = (cardElement) => {
@@ -121,6 +142,13 @@ const generateCard = (cardElement) => {
   const likeCardBtn = newCard.querySelector(".card__heart-button");
   likeCardBtn.addEventListener("click", handleLikeCard);
 
+  cardImage.addEventListener("click", () => {
+    openZoomPopup(popupZoomImage);
+    figcaption.textContent = cardElement.name;
+    largeImage.src = cardElement.link;
+    largeImage.alt = cardElement.name;
+  });
+
   return newCard;
 };
 
@@ -133,15 +161,11 @@ initialCards.forEach((cardElement) => {
   renderCard(cardElement);
 });
 
-//добавление новой карточки из формы
-
-const formAddCart = popupAddCard.querySelector(".popup__form-edit_card");
-const inputTitle = formAddCart.querySelector(".popup__input-field_type_title");
-const inputImage = formAddCart.querySelector(".popup__input-field_type_image");
-
 function handlerAddFormSubmit(event) {
   event.preventDefault();
-  renderCard({ name: inputTitle.value }, { link: inputImage.value });
+  renderCard({ name: inputTitle.value, link: inputImage.value });
+  inputTitle.value = "";
+  inputImage.value = "";
 
   onClose(popupAddCard);
 }
