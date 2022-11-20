@@ -1,3 +1,31 @@
+//массив начальних карточек
+const initialCards = [
+  {
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+  },
+  {
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+  },
+  {
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+  },
+  {
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+  },
+  {
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+  },
+  {
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
+];
+
 // открытие попапа edit и закрытие
 
 const editElem = document.querySelector(".profile__button_type_edit");
@@ -65,7 +93,7 @@ closeEdit.forEach((button) => {
 });
 
 // обработчик профиля
-function formSubmitHandler(event) {
+function handlerformSubmit(event) {
   event.preventDefault();
 
   nameProfile.textContent = nameInput.value;
@@ -74,45 +102,7 @@ function formSubmitHandler(event) {
   onClose(popupElem);
 }
 
-formElement.addEventListener("submit", formSubmitHandler);
-
-editElem.addEventListener("click", function () {
-  onOpen(popupElem);
-});
-
-addButton.addEventListener("click", function () {
-  openAddСard(popupAddCard);
-});
-// открытие zoom popup
-
-// шаблон
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+//  функции удаления карточек и изменения цвета сердечка
 
 const handleDeleteCard = (event) => {
   event.target.closest(".gallery__list-item").remove();
@@ -141,7 +131,7 @@ const generateCard = (cardElement) => {
 
   const likeCardBtn = newCard.querySelector(".card__heart-button");
   likeCardBtn.addEventListener("click", handleLikeCard);
-
+  // открытие большой фотографии
   cardImage.addEventListener("click", () => {
     openZoomPopup(popupZoomImage);
     figcaption.textContent = cardElement.name;
@@ -170,4 +160,11 @@ function handlerAddFormSubmit(event) {
   onClose(popupAddCard);
 }
 
+editElem.addEventListener("click", function () {
+  onOpen(popupElem);
+});
+addButton.addEventListener("click", function () {
+  openAddСard(popupAddCard);
+});
+formElement.addEventListener("submit", handlerformSubmit);
 formAddCart.addEventListener("submit", handlerAddFormSubmit);
