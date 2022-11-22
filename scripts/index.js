@@ -98,7 +98,8 @@ const generateCard = (cardElement) => {
   cardImage.addEventListener("click", () => {
     openPopup(2);
     figcaption.textContent = cardElement.name;
-    formAddCart.reset();
+    largeImage.src = cardElement.link;
+    largeImage.alt = cardElement.name;
   });
 
   return newCard;
@@ -116,8 +117,7 @@ initialCards.forEach((cardElement) => {
 function handleAddFormSubmit(event) {
   event.preventDefault();
   renderCard({ name: inputTitle.value, link: inputImage.value });
-  inputTitle.value = "";
-  inputImage.value = "";
+  formAddCart.reset();
 
   closePopup(popupAddCard);
 }
