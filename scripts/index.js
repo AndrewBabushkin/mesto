@@ -1,9 +1,9 @@
 // открытие попапа edit и закрытие
 
 const buttonEdit = document.querySelector(".profile__button_type_edit");
-const popupElem = document.querySelectorAll(".popup");
+const popups = document.querySelectorAll(".popup");
 const popupEditProfile = document.querySelector(".popup_type_edit-profile");
-const popupCloseBtn = document.querySelectorAll(".popup__close-button");
+const buttonsClosePopup = document.querySelectorAll(".popup__close-button");
 
 // редактирование имени
 
@@ -39,8 +39,8 @@ const figcaption = popupZoomImage.querySelector(".popup__figcaption");
 const largeImage = popupZoomImage.querySelector(".popup__image");
 
 // функция открытия попап edit
-const openPopup = (index) => {
-  popupElem[index].classList.add("popup_opened");
+const openPopup = (popups) => {
+  popups.classList.add("popup_opened");
 };
 
 const closePopup = (popup) => {
@@ -48,7 +48,7 @@ const closePopup = (popup) => {
 };
 
 //  обработчик крестиков
-popupCloseBtn.forEach((button) => {
+buttonsClosePopup.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => {
     closePopup(popup);
@@ -96,7 +96,7 @@ const generateCard = (cardElement) => {
   buttonLikeCard.addEventListener("click", handleLikeCard);
   // открытие большой фотографии
   cardImage.addEventListener("click", () => {
-    openPopup(2);
+    openPopup(popupZoomImage);
     figcaption.textContent = cardElement.name;
     largeImage.src = cardElement.link;
     largeImage.alt = cardElement.name;
@@ -123,12 +123,12 @@ function handleAddFormSubmit(event) {
 }
 
 buttonEdit.addEventListener("click", () => {
-  openPopup(0);
+  openPopup(popupEditProfile);
   nameInput.value = nameProfile.textContent;
   professionInput.value = professionProfile.textContent;
 });
 buttonAddCard.addEventListener("click", () => {
-  openPopup(1);
+  openPopup(popupAddCard);
 });
 formElement.addEventListener("submit", handleformSubmit);
 formAddCart.addEventListener("submit", handleAddFormSubmit);
