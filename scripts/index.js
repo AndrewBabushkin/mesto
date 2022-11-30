@@ -7,9 +7,11 @@ const buttonsClosePopup = document.querySelectorAll(".popup__close-button");
 
 // редактирование имени
 
-const formElement = document.querySelector(".popup__form-edit");
-const nameInput = formElement.querySelector(".popup__input-field_type_name");
-const professionInput = formElement.querySelector(
+const formEditProfile = document.querySelector(".popup__form-edit_profile");
+const nameInput = formEditProfile.querySelector(
+  ".popup__input-field_type_name"
+);
+const professionInput = formEditProfile.querySelector(
   ".popup__input-field_type_profession"
 );
 const nameProfile = document.querySelector(".profile__name");
@@ -109,7 +111,7 @@ const generateCard = (cardElement) => {
 const renderCard = (cardElement) => {
   galleryContainer.prepend(generateCard(cardElement));
 };
-// обработка массива
+// перебор массива
 initialCards.forEach((cardElement) => {
   renderCard(cardElement);
 });
@@ -130,5 +132,7 @@ buttonEdit.addEventListener("click", () => {
 buttonAddCard.addEventListener("click", () => {
   openPopup(popupAddCard);
 });
-formElement.addEventListener("submit", handleformSubmit);
+formEditProfile.addEventListener("submit", handleformSubmit);
 formAddCart.addEventListener("submit", handleAddFormSubmit);
+
+// Валидация форм

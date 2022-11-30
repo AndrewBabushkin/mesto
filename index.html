@@ -64,21 +64,35 @@
           aria-label="Закрыть окно"
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form-edit" name="formEdit">
+        <form
+          class="popup__form-edit popup__form-edit_profile"
+          name="formEdit"
+          novalidate
+        >
           <input
             type="text"
             class="popup__input-field popup__input-field_type_name"
             name="editName"
             value="Имя"
             placeholder="Ваше имя"
+            required
+            id="name-input"
+            minlength="2"
+            maxlength="40"
           />
+          <span class="name-input-error popup__input-error"></span>
           <input
             type="text"
             class="popup__input-field popup__input-field_type_profession"
             name="editProfession"
             value="Профессия"
             placeholder="Ваш род деятельности"
+            required
+            id="profession-input"
+            minlength="2"
+            maxlength="200"
           />
+          <span class="profession-input-error popup__input-error"></span>
           <button type="submit" class="popup__save-button" name="save-button">
             Сохранить
           </button>
@@ -94,21 +108,33 @@
           aria-label="Закрыть окно"
         ></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form-edit popup__form-edit_card" name="formCard">
+        <form
+          class="popup__form-edit popup__form-edit_card"
+          name="formCard"
+          novalidate
+        >
           <input
             type="text"
             class="popup__input-field popup__input-field_type_title"
             name="editTitle"
             value=""
             placeholder="Название места"
+            required
+            id="title-input"
+            minlength="2"
+            maxlength="30"
           />
+          <span class="title-input-error popup__input-error"></span>
           <input
-            type="text"
+            type="url"
             class="popup__input-field popup__input-field_type_image"
             name="editImage"
             value=""
             placeholder="Добавить фотографию"
+            required
+            id="image-input"
           />
+          <span class="image-input-error popup__input-error"></span>
           <button type="submit" class="popup__save-button" name="save-button">
             Сохранить
           </button>
@@ -156,7 +182,7 @@
         </article>
       </li>
     </template>
-
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/array.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </body>

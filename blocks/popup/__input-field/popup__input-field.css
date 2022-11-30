@@ -5,11 +5,11 @@
   line-height: 17px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 0 0 9px 0;
 }
-.popup__input-field:nth-child(1) {
-  margin-bottom: 30px;
+.popup__input-field:nth-child(3) {
+  margin-top: 25px;
 }
 
 @media (min-width: 650px) {

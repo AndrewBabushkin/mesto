@@ -5,7 +5,7 @@
   border-radius: 2px;
   color: #fff;
   display: block;
-  margin: 45px auto 25px;
+  margin: 40px auto 25px;
   padding: 0;
   border: none;
   font-weight: 400;
@@ -23,7 +23,7 @@
   .popup__save-button {
     width: 358px;
     height: 50px;
-    margin: 48px auto 37px;
+    margin: 43px auto 37px;
     font-size: 18px;
     line-height: 22px;
   }
