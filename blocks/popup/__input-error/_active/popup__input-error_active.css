@@ -1,14 +1,3 @@
 .popup__input-error_active {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
   color: #ff0000;
-  display: block;
-  max-width: 238px;
-}
-
-@media (min-width: 650px) {
-  .popup__input-error_active {
-    max-width: 358px;
-  }
 }

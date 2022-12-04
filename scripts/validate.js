@@ -60,7 +60,6 @@ const toggleButtonState = (inputList, buttonElement) => {
 // функция включения валидации
 const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(".popup__form-edit"));
-  console.log(formList);
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
@@ -70,4 +69,11 @@ const enableValidation = () => {
   });
 };
 
-enableValidation();
+enableValidation({
+  formSelector: ".popup__form-edit",
+  inputSelector: ".popup__input-field",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button_inactive",
+  inputErrorClass: "popup__input-error",
+  errorClass: "popup__input-error_active",
+});

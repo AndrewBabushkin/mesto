@@ -40,13 +40,20 @@ const popupZoomImage = document.querySelector(".popup_type_zoom");
 const figcaption = popupZoomImage.querySelector(".popup__figcaption");
 const largeImage = popupZoomImage.querySelector(".popup__image");
 
-// функция открытия попап edit
-const openPopup = (popups) => {
-  popups.classList.add("popup_opened");
+// функция открытия попапов
+const openPopup = (popup) => {
+  popup.classList.add("popup_opened");
+  document.addEventListener("keydown", closePopupByEscape);
 };
 
 const closePopup = (popup) => {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupByEscape);
+};
+const closePopupByEscape = (event) => {
+  if (event.key === "Escape") {
+    closePopup(document.querySelector(".popup_opened"));
+  }
 };
 
 //  обработчик крестиков
@@ -54,6 +61,14 @@ buttonsClosePopup.forEach((button) => {
   const popup = button.closest(".popup");
   button.addEventListener("click", () => {
     closePopup(popup);
+  });
+});
+
+popups.forEach((overlay) => {
+  overlay.addEventListener("click", (event) => {
+    if (event.target.classList.contains("popup_opened")) {
+      closePopup(overlay);
+    }
   });
 });
 
@@ -134,5 +149,3 @@ buttonAddCard.addEventListener("click", () => {
 });
 formEditProfile.addEventListener("submit", handleformSubmit);
 formAddCart.addEventListener("submit", handleAddFormSubmit);
-
-// Валидация форм
