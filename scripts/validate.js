@@ -1,41 +1,49 @@
 // функция добавления ошибки ввода
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, settings, errorMessage) => {
   const errorSpan = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("popup__input-field_type_error");
   errorSpan.textContent = errorMessage;
-  errorSpan.classList.add("popup__input-error_active");
+  errorSpan.classList.add(settings.errorClass);
+  inputElement.classList.add(settings.inputErrorClass);
 };
 // функция удаления ошибки ввода
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, settings) => {
   const errorSpan = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("popup__input-field_type_error");
-  errorSpan.classList.remove("popup__input-error_active");
+  inputElement.classList.remove(settings.inputErrorClass);
+  errorSpan.classList.remove(settings.errorClass);
   errorSpan.textContent = "";
 };
 
 // Проверка валидации
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, settings) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      formElement,
+      inputElement,
+      settings,
+      inputElement.validationMessage
+    );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, settings);
   }
 };
 
 // Добавление обработчика полей ввода
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, settings) => {
   const inputList = Array.from(
-    formElement.querySelectorAll(".popup__input-field")
+    formElement.querySelectorAll(settings.inputSelector)
   );
-  const buttonElement = formElement.querySelector(".popup__save-button");
-  buttonElement.disabled = true;
-  toggleButtonState(inputList, buttonElement);
+
+  const buttonElement = formElement.querySelector(
+    settings.submitButtonSelector
+  );
+
+  toggleButtonState(inputList, buttonElement, settings);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(formElement, inputElement, settings);
 
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, settings);
     });
   });
 };
@@ -47,25 +55,26 @@ const hasInvalidInput = (inputList) => {
 };
 
 // Проверка кнопки
-const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("popup__save-button_inactive");
+const toggleButtonState = (inputList, buttonElement, settings) => {
+  if (hasInvalidInput(inputList, settings)) {
+    buttonElement.classList.add(settings.inactiveButtonClass);
     buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove("popup__save-button_inactive");
+    buttonElement.classList.remove(settings.inactiveButtonClass);
     buttonElement.disabled = false;
   }
 };
+// блокировка кнопки при открытии попапа
+const blockButton = (buttonElement, settings) => {
+  buttonElement.classList.add(settings.inactiveButtonClass);
+  buttonElement.disabled = true;
+};
 
 // функция включения валидации
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".popup__form-edit"));
+const enableValidation = (settings) => {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
-      evt.preventDefault();
-    });
-
-    setEventListeners(formElement);
+    setEventListeners(formElement, settings);
   });
 };
 
@@ -74,6 +83,6 @@ enableValidation({
   inputSelector: ".popup__input-field",
   submitButtonSelector: ".popup__save-button",
   inactiveButtonClass: "popup__save-button_inactive",
-  inputErrorClass: "popup__input-error",
+  inputErrorClass: "popup__input-field_type_error",
   errorClass: "popup__input-error_active",
 });

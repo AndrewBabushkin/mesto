@@ -25,3 +25,12 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+// объект валидации
+const settings = {
+  formSelector: ".popup__form-edit",
+  inputSelector: ".popup__input-field",
+  submitButtonSelector: ".popup__save-button",
+  inactiveButtonClass: "popup__save-button_inactive",
+  inputErrorClass: "popup__input-field_type_error",
+  errorClass: "popup__input-error_active",
+};

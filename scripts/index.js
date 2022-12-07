@@ -16,6 +16,9 @@ const professionInput = formEditProfile.querySelector(
 );
 const nameProfile = document.querySelector(".profile__name");
 const professionProfile = document.querySelector(".profile__profession");
+const buttonSaveProfile = formEditProfile.querySelector(
+  ".popup__save-button_type_profile"
+);
 
 // попап редактирования карточек с фотографиями
 
@@ -27,6 +30,9 @@ const popupAddCard = document.querySelector(".popup_type_add-card");
 const formAddCart = popupAddCard.querySelector(".popup__form-edit_card");
 const inputTitle = formAddCart.querySelector(".popup__input-field_type_title");
 const inputImage = formAddCart.querySelector(".popup__input-field_type_image");
+const buttonSaveCard = formAddCart.querySelector(
+  ".popup__save-button_type_card"
+);
 
 // cоздание карточек
 
@@ -65,7 +71,7 @@ buttonsClosePopup.forEach((button) => {
 });
 
 popups.forEach((overlay) => {
-  overlay.addEventListener("click", (event) => {
+  overlay.addEventListener("mousedown", (event) => {
     if (event.target.classList.contains("popup_opened")) {
       closePopup(overlay);
     }
@@ -89,9 +95,7 @@ const handleDeleteCard = (event) => {
 };
 
 const handleLikeCard = (event) => {
-  event.target
-    .closest(".card__heart-button")
-    .classList.toggle("card__heart-button_active");
+  event.target.classList.toggle("card__heart-button_active");
 };
 
 // создание карточки
@@ -143,9 +147,11 @@ buttonEdit.addEventListener("click", () => {
   openPopup(popupEditProfile);
   nameInput.value = nameProfile.textContent;
   professionInput.value = professionProfile.textContent;
+  blockButton(buttonSaveProfile, settings);
 });
 buttonAddCard.addEventListener("click", () => {
   openPopup(popupAddCard);
+  blockButton(buttonSaveCard, settings);
 });
 formEditProfile.addEventListener("submit", handleformSubmit);
 formAddCart.addEventListener("submit", handleAddFormSubmit);
