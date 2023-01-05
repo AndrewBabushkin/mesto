@@ -1,4 +1,4 @@
-import { initialCards } from "./Arrays.js";
+import { initialCards } from "./Arrays1.js";
 
 class Card {
   constructor(initialCards) {

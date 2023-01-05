@@ -1,4 +1,4 @@
-import { settings } from "./Arrays.js";
+import { settings } from "./Arrays1.js";
 
 class FormValidator {
   constructor(settings, formElement) {
