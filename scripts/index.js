@@ -1,4 +1,4 @@
-import { initialCards, settings } from "./Arrays1.js";
+import { initialCards, settings } from "./Arrays.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 

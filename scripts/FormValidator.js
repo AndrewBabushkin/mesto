@@ -1,4 +1,4 @@
-import { settings } from "./Arrays1.js";
+import { settings } from "./Arrays.js";
 
 class FormValidator {
   constructor(settings, formElement) {
@@ -21,9 +21,6 @@ class FormValidator {
     errorSpan.textContent = errorMessage;
     errorSpan.classList.add(this._errorClass);
     inputElement.classList.add(this._inputErrorClass);
-    console.log(errorSpan);
-    console.log(inputElement);
-    console.log(errorMessage);
   }
   //  удаление ошибки ввода
   _hideInputError(inputElement, settings) {
