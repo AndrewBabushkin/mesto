@@ -1,14 +1,14 @@
-import { initialCards } from "./Arrays.js";
-
 class Card {
-  constructor(initialCards) {
-    this._name = initialCards.name;
-    this._link = initialCards.link;
+  constructor(cardData, cardTemplate, handleOpenZoomImage) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._cardTemplate = cardTemplate;
+    this._handleOpenZoomImage = handleOpenZoomImage;
   }
   //копируем карточку
   _getTemplateCard() {
     const cardElement = document
-      .querySelector("#card-template")
+      .querySelector(this._cardTemplate)
       .content.querySelector(".gallery__list-item")
       .cloneNode(true);
 
@@ -19,44 +19,38 @@ class Card {
     const cardTitle = this._newCard.querySelector(".card__title");
     cardTitle.textContent = this._name;
 
-    const cardImage = this._newCard.querySelector(".card__image");
-    cardImage.src = this._link;
-    cardImage.alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
   }
   // удаление карточки
   _handleDeleteCard() {
     this._newCard.remove();
     this._newCard = null;
   }
-
-  // открытие большой картинки
-  _openZoomImage() {
-    const popupZoomImage = document.querySelector(".popup_type_zoom");
-    popupZoomImage.classList.add("popup_opened");
-    const figcaption = popupZoomImage.querySelector(".popup__figcaption");
-    const largeImage = popupZoomImage.querySelector(".popup__image");
-    figcaption.textContent = this._name;
-    largeImage.src = this._link;
-    largeImage.alt = this._name;
+  // функция лайка
+  _handleLikeCard() {
+    this._buttonLikeCard.classList.toggle("card__heart-button_active");
   }
 
   // слушатели событий
   _setEventListeners() {
-    const cardImage = this._newCard.querySelector(".card__image");
-    cardImage.addEventListener("click", () => this._openZoomImage());
+    this._cardImage.addEventListener("click", () =>
+      this._handleOpenZoomImage(this._name, this._link)
+    );
 
     const buttonDeleteCard = this._newCard.querySelector(".card__delete-btn");
     buttonDeleteCard.addEventListener("click", () => this._handleDeleteCard());
 
-    const buttonLikeCard = this._newCard.querySelector(".card__heart-button");
-    buttonLikeCard.addEventListener("click", () => {
-      buttonLikeCard.classList.toggle("card__heart-button_active");
-    });
+    this._buttonLikeCard.addEventListener("click", () =>
+      this._handleLikeCard()
+    );
   }
 
   // показываем новую карточку
   generateCard() {
     this._newCard = this._getTemplateCard();
+    this._cardImage = this._newCard.querySelector(".card__image");
+    this._buttonLikeCard = this._newCard.querySelector(".card__heart-button");
     this._setEventListeners();
     this._setData();
 

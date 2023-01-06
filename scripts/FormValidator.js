@@ -1,8 +1,5 @@
-import { settings } from "./Arrays.js";
-
 class FormValidator {
   constructor(settings, formElement) {
-    this._formSelector = settings.formSelector;
     this._inputSelector = settings.inputSelector;
     this._submitButtonSelector = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -47,13 +44,13 @@ class FormValidator {
   // Проверка кнопки
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      this._blockButton();
+      this.blockButton();
     } else {
       this._unBlockButton();
     }
   }
   // блокировка кнопки при открытии попапа
-  _blockButton() {
+  blockButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
   }

@@ -1,46 +1,26 @@
-import { initialCards, settings } from "./Arrays.js";
+import {
+  initialCards,
+  settings,
+  buttonEdit,
+  popups,
+  popupEditProfile,
+  buttonsClosePopup,
+  formEditProfile,
+  nameInput,
+  professionInput,
+  nameProfile,
+  professionProfile,
+  buttonSaveProfile,
+  buttonAddCard,
+  popupAddCard,
+  formAddCart,
+  inputTitle,
+  inputImage,
+  buttonSaveCard,
+  galleryContainer,
+} from "./Constants.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
-
-// открытие попапа edit и закрытие
-
-const buttonEdit = document.querySelector(".profile__button_type_edit");
-const popups = document.querySelectorAll(".popup");
-const popupEditProfile = document.querySelector(".popup_type_edit-profile");
-const buttonsClosePopup = document.querySelectorAll(".popup__close-button");
-
-// редактирование имени
-
-const formEditProfile = document.querySelector(".popup__form-edit_profile");
-const nameInput = formEditProfile.querySelector(
-  ".popup__input-field_type_name"
-);
-const professionInput = formEditProfile.querySelector(
-  ".popup__input-field_type_profession"
-);
-const nameProfile = document.querySelector(".profile__name");
-const professionProfile = document.querySelector(".profile__profession");
-const buttonSaveProfile = formEditProfile.querySelector(
-  ".popup__save-button_type_profile"
-);
-
-// попап редактирования карточек с фотографиями
-
-const buttonAddCard = document.querySelector(".profile__button_type_add");
-const popupAddCard = document.querySelector(".popup_type_add-card");
-
-// добавление новой карточки из формы
-
-const formAddCart = popupAddCard.querySelector(".popup__form-edit_card");
-const inputTitle = formAddCart.querySelector(".popup__input-field_type_title");
-const inputImage = formAddCart.querySelector(".popup__input-field_type_image");
-const buttonSaveCard = formAddCart.querySelector(
-  ".popup__save-button_type_card"
-);
-
-// cоздание карточек
-
-const galleryContainer = document.querySelector(".gallery__list");
 
 // функция открытия попапов
 const openPopup = (popup) => {
@@ -57,6 +37,20 @@ const closePopupByEscape = (event) => {
     closePopup(document.querySelector(".popup_opened"));
   }
 };
+// открытие большой картинки
+const handleOpenZoomImage = (nameCard, link) => {
+  const popupZoomImage = document.querySelector(".popup_type_zoom");
+  popupZoomImage.classList.add("popup_opened");
+
+  const figcaption = popupZoomImage.querySelector(".popup__figcaption");
+  const largeImage = popupZoomImage.querySelector(".popup__image");
+  figcaption.textContent = nameCard;
+  largeImage.src = link;
+  largeImage.alt = nameCard;
+  document.addEventListener("keydown", closePopupByEscape);
+};
+
+//}
 
 //  обработчик крестиков
 buttonsClosePopup.forEach((button) => {
@@ -75,7 +69,7 @@ popups.forEach((overlay) => {
 });
 
 // обработчик профиля
-function handleformSubmit(event) {
+function handleProfileFormSubmit(event) {
   event.preventDefault();
 
   nameProfile.textContent = nameInput.value;
@@ -94,7 +88,7 @@ function handleAddFormSubmit(event) {
 
 // Вставка карточки
 const renderCard = (cardElement) => {
-  const card = new Card(cardElement);
+  const card = new Card(cardElement, "#card-template", handleOpenZoomImage);
   galleryContainer.prepend(card.generateCard(cardElement));
 };
 
@@ -117,12 +111,12 @@ buttonEdit.addEventListener("click", () => {
   openPopup(popupEditProfile);
   nameInput.value = nameProfile.textContent;
   professionInput.value = professionProfile.textContent;
-  formEditProfileValidation._blockButton(buttonSaveProfile, settings);
+  formEditProfileValidation.blockButton(buttonSaveProfile, settings);
 });
 buttonAddCard.addEventListener("click", () => {
   openPopup(popupAddCard);
-  formAddCardValidation._blockButton(buttonSaveCard, settings);
+  formAddCardValidation.blockButton(buttonSaveCard, settings);
 });
 
-formEditProfile.addEventListener("submit", handleformSubmit);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
 formAddCart.addEventListener("submit", handleAddFormSubmit);
